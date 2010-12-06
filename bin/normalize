@@ -1,0 +1,5 @@
+#!/bin/sh
+while read line
+do
+    echo $line | sed "s/[^[:alnum:]\.]/_/g" | sed "s/_\{1,\}/_/g"
+done

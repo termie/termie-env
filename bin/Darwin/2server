@@ -1,0 +1,20 @@
+#!/bin/sh
+OUTFILES=""
+for x in "$@"
+do
+    FNAME=`echo "$x" | sed "s/\/\$//" | sed "s/.*\///" | /Users/andy/bin/normalize`
+    if [ -d "$x" ]
+    then
+        tar -czf "$x.tar.gz" "$x"
+        FNAME=$FNAME.tar.gz
+        scp -q "$x.tar.gz" term.ie:www/data/$FNAME
+        rm "$x.tar.gz"
+    else
+        scp -q "$x" term.ie:www/data/$FNAME
+    fi
+    RNAME="http://term.ie/data/$FNAME"
+    OUTFILES="$OUTFILES $RNAME"
+done
+echo $OUTFILES | pbcopy
+growlnotify -m "$OUTFILES" -a "Transmit.app"
+echo $OUTFILES

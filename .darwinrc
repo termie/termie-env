@@ -1,0 +1,6 @@
+export LANG=en_US.utf-8
+
+# fink
+[ -f "/sw/bin/init.sh" ] && source /sw/bin/init.sh
+
+export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r5

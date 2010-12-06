@@ -1,0 +1,3 @@
+#!/bin/sh
+gvim "$@"
+osascript ~/Library/Scripts/Applications/Terminal/CloseAllTerminals.scpt

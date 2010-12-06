@@ -1,0 +1,30 @@
+#   
+#   termie's common environment stuffs
+#
+export GIT_AUTHOR_NAME=termie
+export GIT_COMMITTER_NAME=termie
+
+# grab the platform details
+export T_PLATFORM=`uname`
+export T_HOST=`hostname`
+
+## python
+if [ -f "$HOME/.pyrc" ]; then
+    export PYTHONSTARTUP=$HOME/.pyrc
+fi
+
+## perl
+export PERL5LIB=$HOME/lib/perl5.8.6
+
+## gcc
+export CCACHE_DIR=$HOME/.ccache
+
+## defaults
+export PATH=$HOME/bin:$HOME/bin/$T_PLATFORM:/usr/local/bin:/usr/local/sbin:/opt/local/bin:$PATH
+export PAGER=less
+export EDITOR=vim
+export CLICOLOR=1
+export RSYNC_RSH=ssh
+
+# maybe have some way to determine whether we should set this...
+export FTP_PASSIVE=1

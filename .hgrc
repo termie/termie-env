@@ -1,0 +1,6 @@
+[ui]
+username=termie
+merge=vimdiff
+
+[extensions]
+;hgk=/Users/andy/src/hg/contrib/hgk.py

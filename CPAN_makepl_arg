@@ -1,0 +1,1 @@
+PREFIX=~/perl LIB=~/lib/perl5.8.6 INSTALLMAN1DIR=~/share/man1 INSTALLMAN3DIR=~/share/man3

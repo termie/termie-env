@@ -1,0 +1,7 @@
+export MAIL=$HOME/.Maildir
+#colors for ls
+if [ -x "/usr/bin/dircolors" ] && [ -f "$HOME/.dir_colors" ]; then
+    eval `dircolors -b ~/.dir_colors`
+fi
+alias ls="ls --color=auto"
+

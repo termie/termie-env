@@ -1,0 +1,6 @@
+#!/bin/sh
+QSPID=`ps awx | grep Quicksilver | grep -v grep | awk '{ print $1 }'`
+if [ -n "$QSPID" ]; then
+    kill $QSPID
+    open -a /Applications/Quicksilver.app
+fi

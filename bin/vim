@@ -1,0 +1,21 @@
+#!/bin/sh
+if [ -e "$1" ]
+then
+    if [ -w "$1" ]
+    then
+        SUDO=""
+    else
+        SUDO="sudo "
+    fi
+else
+    SUDO=""
+fi
+
+if [ $T_PLATFORM = "Darwin" ]; then
+    VIM="/Applications/MacVim.app/Contents/MacOS/Vim -p"
+elif [ -f "/usr/bin/vim" ]; then
+    VIM=/usr/bin/vim
+elif [ -f "/usr/local/bin/vim" ]; then
+    VIM=/usr/local/bin/vim
+fi
+${SUDO}${VIM} "$@"
