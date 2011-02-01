@@ -159,3 +159,8 @@ endfunction
 set langmenu=none
 
 let javaScript_fold=1
+
+highlight ExtraWhitespace ctermbg=red guibg=red
+:match ExtraWhitespace /\s\+$\|\t\+/
+autocmd BufWritePre * :%s/\s\+$//e
+autocmd colorscheme * highlight ExtraWhitespace ctermbg=red guibg=red
