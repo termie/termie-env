@@ -102,8 +102,8 @@ au BufWinEnter *.xml silent loadview
 "noremap <C-p> :bprev<CR>
 
 " tabs!
-" noremap :tabnext<CR>
-" noremap OD :tabprevious<CR>
+noremap [2C :tabnext<CR>
+noremap [2D :tabprevious<CR>
 noremap  :tabnew<CR>
 
 
@@ -122,7 +122,7 @@ noremap  :tabnew<CR>
 "map ,* :s/^\(.*\)$/\/\* \1 \*\//<CR> <Esc>:nohlsearch<CR>
 "map ,( :s/^\(.*\)$/\(\* \1 \*\)/<CR><Esc>:nohlsearch <CR>
 "map ,< :s/^\(.*\)$/<!-- \1 -->/<CR> <Esc>:nohlsearch<CR>
-"map ,d :s/^\([/(]\*\\|<!--\) \(.*\) \(\*[/)]\\|-->\)$/\2/<CR> <Esc>:nohlsearch<CR>
+"map ,d :s/^\([/(]\*\\|<!--\) \(.*\) \(\*[/)]\\|-->\)$/\2/<CR> <Esc>:nohlsearch<CR> 
 
 set tabstop=2
 set expandtab
@@ -138,25 +138,21 @@ let g:snip_start_tag = "@"
 let g:snip_end_tag = "@"
 imap  <Plug>Jumper
 
-"function InsertTabWrapper()
+"function InsertTabWrapper() 
 "    let col = col('.') - 1
-"    if !col || getline('.')[col - 1] !~ '\k'
-"        return "\<tab>"
+"    if !col || getline('.')[col - 1] !~ '\k' 
+"        return "\<tab>" 
 "    else
 "        return "\<c-p>"
-"    endif
-"endfunction
+"    endif 
+"endfunction 
 "inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 "
 function FourSpace()
   set tabstop=4
   set shiftwidth=4
   set softtabstop=4
-endfunction
-
-" Enable colorscheme for solarized
-set background=dark
-colorscheme solarized
+endfunction  
 
 
 " l10n stuff... now that i am in dutch
