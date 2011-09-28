@@ -8,7 +8,7 @@
 
 
 ==============================================================================
-CONTENTS                                              *NERD_comments-contents* 
+CONTENTS                                              *NERD_comments-contents*
 
     1.Intro                               : |NERD_comments|
     2.Functionality provided              : |NERD_com-Functionality|
@@ -21,7 +21,7 @@ CONTENTS                                              *NERD_comments-contents*
 1. Intro                                                       *NERD_comments*
 
 NERD_comments provides a set of handy key mappings for commenting code. These
-mappings are consistent across all supported filetypes. 
+mappings are consistent across all supported filetypes.
 
 When writing NERD_comments I have tried to give it as many features/options as
 possible while keeping it so that the plugin can still be used with little or
@@ -37,11 +37,11 @@ Enjoy :D
 The following key mappings are provided by default (there is also a menu
 provided that contains menu items corresponding to all the below mappings):
 
-Note: <leader> is a user defined key that is used to start keymappings and 
+Note: <leader> is a user defined key that is used to start keymappings and
 defaults to \. Check out |<leader>| for details.
 
 <leader>cc      Comments out the current line. If multiple lines are selected
-in visual mode, they are all commented out. 
+in visual mode, they are all commented out.
 If some text is selected in visual or visual-block mode then NERD_comments
 will comment out the exact text that is selected. It will use multi-part
 delimiters if they are available (and if the
@@ -104,7 +104,7 @@ keys for this mappings can be overridden with the |NERD_prepend_com_map|
 option.
 
 <C-c>       Adds comment delimiters at the current cursor position and inserts
-between them. Works in insert mode. The keys for this mappings can be 
+between them. Works in insert mode. The keys for this mappings can be
 overridden with the |NERD_com_in_insert_map| option.
 
 Files that can be commented by this plugin:
@@ -148,7 +148,7 @@ is capable of adding and removing comments of this type.
 ==============================================================================
 3. Customisation                                      *NERD_com-Customisation*
 
-To enable any of the below options you should put the given line in your 
+To enable any of the below options you should put the given line in your
 ~/.vimrc
 
 General options~
@@ -198,7 +198,7 @@ For example, if you are commenting this chunk of c code in visual-block mode
    |   | while(1){
    |   |     fork();
    |   | }
-   |}  | 
+   |}  |
 <
 If NERD_block_com_after_right=1 then this code will become: >
     #include <sys/types.h>
@@ -209,7 +209,7 @@ If NERD_block_com_after_right=1 then this code will become: >
     /*   */ while(1){
     /*   */     fork();
     /*   */ }
-    /*}  */ 
+    /*}  */
 <
 Otherwise, the code block would become: >
     #include <sys/types.h>
@@ -220,7 +220,7 @@ Otherwise, the code block would become: >
 	while(1){
 	    fork();
 	}
-    /*}  */ 
+    /*}  */
 <
 
                                           *NERD_comment_whole_lines_in_v_mode*
@@ -288,8 +288,8 @@ These options are used to control the strings used as place-holder delimiters.
 Place holder delimiters are used when performing nested commenting when the
 filetype supports commenting styles with both left and right delimiters.
 To set these options use lines like: >
-    let NERD_lPlace="FOO" 
-    let NERD_rPlace="BAR" 
+    let NERD_lPlace="FOO"
+    let NERD_rPlace="BAR"
 <
 Following the above example, if we have line of c code: >
     /* int horse */
@@ -302,7 +302,7 @@ NERD_lPlace defaults to '[+', NERD_rPlace defaults to '+]'.
 
                                                       *NERD_left_align_regexp*
 This option is a regular expression which is used to specify which filetypes
-should have their left delimiters aligned when commenting multiple lines. 
+should have their left delimiters aligned when commenting multiple lines.
 
 For example, consider this chunk of c code: >
     1 int foo = 3;
@@ -353,7 +353,7 @@ examples: >
 
                                                       *NERD_right_align_regexp*
 This option is a regular expression which is used to specify which filetypes
-should have their right delimiters aligned when commenting multiple lines. 
+should have their right delimiters aligned when commenting multiple lines.
 
 For example, consider this chunk of c code: >
     1 int foo = 3;
@@ -406,7 +406,7 @@ NERD_comments should use spaces for (as in the first eg above). Some egs: >
 (1) will cause spaces to be used with all filetypes
 (2) will cause spaces to be used with only with filetypes that start with c
 (3) will cause spaces to be used with all filetypes starting with c as well as
-java files and tex files 
+java files and tex files
 (4) will cause spaces not to be used with any filetypes
 NERD_space_delim_filetype_regexp defaults to '^$'.
 
@@ -417,10 +417,10 @@ Some people may want their sexy comments to be like this: >
      * in c */
 <
 As opposed to like this: >
-    /* 
+    /*
      * Hi There!
      * This is a sexy comment
-     * in c 
+     * in c
      */
 <
 The option NERD_use_compact_sexy_com_regexp is a regular expression. If the
@@ -438,7 +438,7 @@ matching this expression. Some egs: >
 <
 (1) will cause c and h files to use sexy comments by default
 (2) will cause any filetype starting with c (i.e. c, c++ c#...) and h files to
-    use sexy commenting by default 
+    use sexy commenting by default
 (3) will cause java files to use sexy comments by default
 
                                             *NERD_use_nested_comments_default*
@@ -577,12 +577,12 @@ Comment key mapping customisation options~
 -----------------------------------------------------------------------------
 These options are used to override the default keys that are used for the
 commenting mappings. Their values must be set to strings. As an example: if
-you wanted to use the mapping <leader>foo to uncomment lines of code then 
+you wanted to use the mapping <leader>foo to uncomment lines of code then
 you would place this line in your vimrc >
     let NERD_uncom_line_map="<leader>foo"
 <
 
-Check out |NERD_com-Functionality| for details about what the following 
+Check out |NERD_com-Functionality| for details about what the following
 mappings do.
 
 				 *NERD_alt_com_map*
@@ -609,7 +609,7 @@ To override the <leader>cr mapping, set this option >
 To override the <C-c> mapping, set this option >
     let NERD_com_in_insert_map="<new mapping>"
 <
-				 *NERD_com_line_map* 
+				 *NERD_com_line_map*
 To override the <leader>cc mapping, set this option >
     let NERD_com_line_map="<new mapping>"
 <
@@ -642,12 +642,12 @@ Heuristics used to distinguish the real comment delimiters~
 ------------------------------------------------------------------------------
 Because we have comment mappings that place delimiters in the middle of lines,
 for example <leader>c$ |NERD_com-Functionality|, removing comment delimiters
-is a bit tricky. The reason being that just because comment delimiters 
+is a bit tricky. The reason being that just because comment delimiters
 appear in a line doesnt mean they really are delimiters. For example, Java
 uses // comments but the line >
     System.out.println("//");
 <
-clearly contains no real comment delimiters. 
+clearly contains no real comment delimiters.
 
 To distinguish between "real" comment delimiters and "fake" ones we use a set
 of heuristics. For example, one such heuristic states that any comment
@@ -683,7 +683,7 @@ indenting with xml... :P
 Thanks and respect to the following people:
 
 Thanks to Nick Brettell for his many ideas and criticisms. A bloody good
-bastard.  
+bastard.
 :normal :.-1s/good //
 
 Thanks to Matthew Hawkins for his awesome refactoring!
@@ -695,7 +695,7 @@ Thanks to Greg Searle for the idea of using place-holders for nested comments.
 
 Thanks to Nguyen for the suggestions and pointing the h file highlighting bug!
 Also, thanks for the idea of doing sexy comments as well as his suggestions
-relating to it :P 
+relating to it :P
 
 Thanks to Sam R for pointing out some filetypes that NERD_comments could support!
 
