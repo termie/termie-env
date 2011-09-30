@@ -32,6 +32,6 @@ fi
 
 export WORKON_HOME=$HOME/.venv
 [ ! -d "$WORKON_HOME" ] && mkdir $WORKON_HOME
-[ -f virtualenvwrapper.sh ] && source virtualenvwrapper.sh
+[ -f /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
 [ -f /etc/bash_completion.d/virtualenvwrapper ] && \
   source /etc/bash_completion.d/virtualenvwrapper
