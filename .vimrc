@@ -122,7 +122,7 @@ noremap  :tabnew<CR>
 "map ,* :s/^\(.*\)$/\/\* \1 \*\//<CR> <Esc>:nohlsearch<CR>
 "map ,( :s/^\(.*\)$/\(\* \1 \*\)/<CR><Esc>:nohlsearch <CR>
 "map ,< :s/^\(.*\)$/<!-- \1 -->/<CR> <Esc>:nohlsearch<CR>
-"map ,d :s/^\([/(]\*\\|<!--\) \(.*\) \(\*[/)]\\|-->\)$/\2/<CR> <Esc>:nohlsearch<CR> 
+"map ,d :s/^\([/(]\*\\|<!--\) \(.*\) \(\*[/)]\\|-->\)$/\2/<CR> <Esc>:nohlsearch<CR>
 
 set tabstop=2
 set expandtab
@@ -138,21 +138,21 @@ let g:snip_start_tag = "@"
 let g:snip_end_tag = "@"
 imap  <Plug>Jumper
 
-"function InsertTabWrapper() 
+"function InsertTabWrapper()
 "    let col = col('.') - 1
-"    if !col || getline('.')[col - 1] !~ '\k' 
-"        return "\<tab>" 
+"    if !col || getline('.')[col - 1] !~ '\k'
+"        return "\<tab>"
 "    else
 "        return "\<c-p>"
-"    endif 
-"endfunction 
+"    endif
+"endfunction
 "inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 "
 function FourSpace()
   set tabstop=4
   set shiftwidth=4
   set softtabstop=4
-endfunction  
+endfunction
 
 
 " l10n stuff... now that i am in dutch
@@ -164,3 +164,7 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 :match ExtraWhitespace /\s\+$\|\t\+/
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd colorscheme * highlight ExtraWhitespace ctermbg=red guibg=red
+
+let g:solarized_termcolors=256
+set background=dark
+colorscheme solarized

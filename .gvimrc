@@ -90,3 +90,5 @@ colorscheme zellner
 set gfn=Menlo:h14
 
 cabbrev double :winsize 160 50<CR>:vsplit<CR>
+set background=light
+colorscheme solarized
