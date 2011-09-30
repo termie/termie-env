@@ -5,6 +5,7 @@
 .linuxrc
 .darwinrc
 .dir_colors
+.gitconfig
 .gvimrc
 .hgrc
 .hgignore
@@ -12,6 +13,7 @@
 .pyrc
 .subversion
 .ssh
+.tmux.conf
 .vim
 .vimrc
 .wgetrc
