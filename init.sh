@@ -5,12 +5,15 @@ PLATFORM=`uname`
 # link the files into place
 for x in `cat $HOME/env/MANIFEST`
 do
-    if [ -e $HOME/$x ]; then
-        echo "Moving $HOME/$x -> $HOME/$x.old.$TIMESTAMP"
-        mv $HOME/$x $HOME/$x.old.$TIMESTAMP
+  if [ ! -L "$HOME/$x" ]; then
+    if [ -e "$HOME/$x" ]; then
+      echo "Moving $HOME/$x -> $HOME/$x.old.$TIMESTAMP"
+      mv $HOME/$x $HOME/$x.old.$TIMESTAMP
+    else
+      echo "Linking $HOME/env/$x -> $HOME/$x"
+      ln -s $HOME/env/$x $HOME/$x
     fi
-    echo "Linking $HOME/env/$x -> $HOME/$x"
-    ln -s $HOME/env/$x $HOME/$x
+  fi
 done
 
 # do platform specific setup
