@@ -35,3 +35,17 @@ export WORKON_HOME=$HOME/.venv
 [ -f /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
 [ -f /etc/bash_completion.d/virtualenvwrapper ] && \
   source /etc/bash_completion.d/virtualenvwrapper
+
+alias emacs="vim"
+alias g="git"
+alias gs="git status"
+alias gco="git checkout"
+alias gd="git diff"
+alias gcm="git commit"
+alias gp="git push"
+alias gpt="git push termie"
+alias v="vim"
+alias gv="gvim"
+alias a="ack"
+
+export CDPATH=/Users/termie/p

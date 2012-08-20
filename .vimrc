@@ -81,6 +81,9 @@ if has("autocmd")
 endif " has("autocmd")
 
 
+call pathogen#infect()
+
+
 " these require the NERD_comments modules
 map ,c <leader>cl
 map ,d <leader>cu
