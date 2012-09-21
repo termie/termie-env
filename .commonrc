@@ -42,10 +42,15 @@ alias gs="git status"
 alias gco="git checkout"
 alias gd="git diff"
 alias gcm="git commit"
-alias gp="git push"
+#alias gp="git push"
 alias gpt="git push termie"
 alias v="vim"
 alias gv="gvim"
 alias a="ack"
+
+alias git="hub"
+if type compdef >/dev/null; then
+  compdef hub=git
+fi
 
 export CDPATH=/Users/termie/p
