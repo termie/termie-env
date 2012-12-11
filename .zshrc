@@ -127,12 +127,12 @@ fi
 [ -f $HOME/.commonrc ] && source $HOME/.commonrc
 
 # darwin stuff
-if [ $T_PLATFORM = "Darwin" ]; then
+if [ "$T_PLATFORM" = "Darwin" ]; then
     # my pleasant little colorization script,
     # only really works with the mac, but could
     # do the same thing on a linux desktop
     # thanks for the idea robin
-    if [ $TERM_PROGRAM = "iTerm.app" ]; then
+    if [ "$TERM_PROGRAM" = "iTerm.app" ]; then
         [ -f "$HOME/bin/$T_PLATFORM/c" ] && source $HOME/bin/$T_PLATFORM/c
     fi
 fi
