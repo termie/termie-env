@@ -30,6 +30,9 @@ long_exec_command="?"
 long_exec_secs=0
 long_exec_ignore="yes"
 
+path_to_growlnotify=$(which growlnotify);
+path_to_terminalnotify=$(which terminal-notifier);
+
 function long_exec_report () {
   #notify-send \
   #  -t 60000 \
@@ -41,12 +44,15 @@ function long_exec_report () {
   #  -P sillypassword \
   #  -t "done" \
   #  -m "$long_exec_command in $1 seconds"
-  #growlnotify -t "done" \
-  #  -m "$long_exec_command in $1 seconds"
-  terminal-notifier -t "done" \
-    -activate om.googlecode.iterm2 \
-    -group "zsh" \
-    -message "$long_exec_command in $1 seconds"
+  if [ -x "$path_to_growlnotify" ]; then
+    growlnotify -t "done" \
+      -m "$long_exec_command in $1 seconds"
+  elif [ -x "$path_to_terminalnotify" ]; then
+    terminal-notifier -t "done" \
+      -activate om.googlecode.iterm2 \
+      -group "zsh" \
+      -message "$long_exec_command in $1 seconds"
+  fi
 }
 
 preexec () {
