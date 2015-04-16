@@ -1,0 +1,7 @@
+#!/usr/bin/perl
+
+use Acme::Goatse;
+
+$foo = goatse();
+print $foo;
+
