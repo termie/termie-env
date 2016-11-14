@@ -9,7 +9,7 @@ if v:progname =~? "evim"
     finish
 endif
 
-
+call pathogen#infect()
 
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
@@ -81,8 +81,6 @@ if has("autocmd")
 endif " has("autocmd")
 
 
-call pathogen#infect()
-
 
 " these require the NERD_comments modules
 map ,c <leader>cl
@@ -90,7 +88,7 @@ map ,d <leader>cu
 
 " this is for folding
 "map zz zA
-map zz za
+map zz zA
 "au BufWinLeave *.js mkview
 "au BufWinEnter *.js silent loadview
 au BufWinLeave *.xul mkview
@@ -164,10 +162,27 @@ set langmenu=none
 let javaScript_fold=1
 
 highlight ExtraWhitespace ctermbg=red guibg=red
-:match ExtraWhitespace /\s\+$\|\t\+/
+:match ExtraWhitespace /\s\+$/
+set list!
+set listchars=tab:▸\ ,
+
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd colorscheme * highlight ExtraWhitespace ctermbg=red guibg=red
 
 let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
+
+
+highlight NonText guifg=#444444
+highlight SpecialKey guifg=#444444
+
+let g:go_fmt_command = "goimports"
+"let g:go_fmt_options = "-f " . expand("%:p")
+
+let g:syntastic_check_on_open = 1
+
+let g:syntastic_mode_map = {
+      \ "mode": "active",
+      \ "active_filetypes": [],
+      \ "passive_filetypes": ["go"] }
