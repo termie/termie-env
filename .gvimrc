@@ -92,3 +92,22 @@ set gfn=Menlo:h14
 cabbrev double :winsize 160 50<CR>:vsplit<CR>
 set background=light
 colorscheme solarized
+
+
+highlight NonText guifg=#DDDDDD
+highlight SpecialKey guifg=#DDDDDD
+
+let g:syntastic_mode_map = {
+      \ "mode": "active",
+      \ "active_filetypes": [],
+      \ "passive_filetypes": ["go"] }
+
+
+function ForceFoldmethodSyntax()
+    if &foldenable
+        set foldmethod=syntax
+    endif
+endfunction
+
+nnoremap <F10> :normal zi<CR>|call ForceFoldmethodSyntax()
+inoremap <F10> ^O:normal zi<CR>|call ForceFoldmethodSyntax()

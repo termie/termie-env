@@ -1,4 +1,4 @@
-#   
+#
 #   termie's common environment stuffs
 #
 export GIT_AUTHOR_NAME=termie
@@ -28,3 +28,6 @@ export RSYNC_RSH=ssh
 
 # maybe have some way to determine whether we should set this...
 export FTP_PASSIVE=1
+
+export GO15VENDOREXPERIMENT=1
+export GOPATH=$HOME/gocode

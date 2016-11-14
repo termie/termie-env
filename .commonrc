@@ -5,30 +5,7 @@
 ## make sure the erase key is always set to ^H
 stty erase 
 
-
-# linux stuff
-if [ $T_PLATFORM = "Linux" ]; then
-    [ -f "$HOME/.linuxrc" ] && source $HOME/.linuxrc
-fi
-
-# darwin stuff
-if [ $T_PLATFORM = "Darwin" ]; then
-    [ -f "$HOME/.darwinrc" ] && source $HOME/.darwinrc
-fi
-
-# freebsd stuff
-if [ $T_PLATFORM = "FreeBSD" ]; then
-    [ 0 ]
-fi
-
-
-# the .pathrc file is not version controlled in the
-# same place so this is used as a system specific
-# set of path overrides
-[ -f "$HOME/.pathrc" ] && source $HOME/.pathrc
-
-# i think localrc is nicer sounding, eh?
-[ -f "$HOME/.localrc" ] && source $HOME/.localrc
+source /usr/local/share/zsh/site-functions/_aws
 
 export WORKON_HOME=$HOME/.venv
 [ ! -d "$WORKON_HOME" ] && mkdir $WORKON_HOME
@@ -54,3 +31,27 @@ if type compdef >/dev/null; then
 fi
 
 export CDPATH=/Users/termie/p
+
+# linux stuff
+if [ $T_PLATFORM = "Linux" ]; then
+    [ -f "$HOME/.linuxrc" ] && source $HOME/.linuxrc
+fi
+
+# darwin stuff
+if [ $T_PLATFORM = "Darwin" ]; then
+    [ -f "$HOME/.darwinrc" ] && source $HOME/.darwinrc
+fi
+
+# freebsd stuff
+if [ $T_PLATFORM = "FreeBSD" ]; then
+    [ 0 ]
+fi
+
+
+# the .pathrc file is not version controlled in the
+# same place so this is used as a system specific
+# set of path overrides
+[ -f "$HOME/.pathrc" ] && source $HOME/.pathrc
+
+# i think localrc is nicer sounding, eh?
+[ -f "$HOME/.localrc" ] && source $HOME/.localrc

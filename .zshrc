@@ -21,9 +21,31 @@ function __prompt_git()
   echo "[$br$top]"
 }
 
+function __prompt_color()
+{
+  local RGB CONVERTED RH GH BH RD GD BD
+  RGB=$(echo $(pwd) termie | md5 | cut -c 1-6)
+
+  RH=$(echo ${RGB} | cut -c 1-2)
+  GH=$(echo ${RGB} | cut -c 3-4)
+  BH=$(echo ${RGB} | cut -c 5-6)
+
+  RD=$(( 16#${RH}))
+  GD=$(( 16#${GH}))
+  BD=$(( 16#${BH}))
+
+  RD=$((${RD} / 5))
+  GD=$((${GD} / 5))
+  BD=$((${BD} / 5))
+
+  CONVERTED=$(printf "%2x%2x%2x" ${RD} ${GD} ${BD})
+  #echo "\033]Ph${CONVERTED}\033\\\b\b"
+}
+
+
 # prompt config
 # should look something like "andy@ptero: ~ %"
-PROMPT=$'%(!.%{$fg[red]%}.%{$fg[green]%})%n@%m%{$reset_color%}:%3c %(!.#.%%) '
+PROMPT=$'%(!.%{$fg[red]%}.%{$fg[green]%})%n@%m%{$reset_color%}:%3c %(!.#.%%) %{$(__prompt_color)%}'
 RPROMPT='%{$fg[yellow]%}$(__prompt_git) %{$reset_color%}%*'
 
 long_exec_command="?"
@@ -107,9 +129,9 @@ zstyle ':completion::complete:*' use-cache 1
 # vim: ft=zsh sw=2 ts=2 et
 
 # Autoload _git completion functions
-if declare -f _git > /dev/null; then
-  _git
-fi
+#if declare -f _git > /dev/null; then
+#  _git
+#fi
 
 if declare -f _git_commands > /dev/null; then
   _hub_commands=(
@@ -136,3 +158,6 @@ if [ "$T_PLATFORM" = "Darwin" ]; then
         [ -f "$HOME/bin/$T_PLATFORM/c" ] && source $HOME/bin/$T_PLATFORM/c
     fi
 fi
+
+PERL_MB_OPT="--install_base \"/Users/termie/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/termie/perl5"; export PERL_MM_OPT;
