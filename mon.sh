@@ -1,17 +1,18 @@
 #!/bin/bash
 
-MONITOR_FILE=/tmp/.monitors
-COUNT=$(xrandr | grep " connected" | wc -l)
+if [ -z "$1" ]; then
+  MONITOR_FILE=/tmp/.monitors
+  COUNT=$(xrandr | grep " connected" | wc -l)
 
-[ ! -f "$MONITOR_FILE" ] && touch "$MONITOR_FILE"
-MONITOR_COUNT=$(cat "$MONITOR_FILE")
-if [ "$COUNT" -eq "$MONITOR_COUNT" ]; then
-  exit
-else
-  echo $COUNT > "$MONITOR_FILE"
-  echo Detect Monitors: found $COUNT monitors, adjusting
+  [ ! -f "$MONITOR_FILE" ] && touch "$MONITOR_FILE"
+  MONITOR_COUNT=$(cat "$MONITOR_FILE")
+  if [ "$COUNT" == "$MONITOR_COUNT" ]; then
+    exit
+  else
+    echo $COUNT > "$MONITOR_FILE"
+    echo Detect Monitors: found $COUNT monitors, adjusting
+  fi
 fi
-
 
 SF_OFFICE=$(hwinfo --monitor --short | grep "DELL U2713HM")
 HOME_OFFICE=$(hwinfo --monitor --short | grep "DELL U3014")
