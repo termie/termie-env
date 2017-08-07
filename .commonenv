@@ -30,4 +30,4 @@ export RSYNC_RSH=ssh
 export FTP_PASSIVE=1
 
 export GO15VENDOREXPERIMENT=1
-export GOPATH=$HOME/gocode
+export GOPATH=$HOME/go

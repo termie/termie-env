@@ -5,7 +5,7 @@
 ## make sure the erase key is always set to ^H
 stty erase 
 
-source /usr/local/share/zsh/site-functions/_aws
+[ -f /usr/local/share/zsh/site-functions/_aws ] && source /usr/local/share/zsh/site-functions/_aws
 
 export WORKON_HOME=$HOME/.venv
 [ ! -d "$WORKON_HOME" ] && mkdir $WORKON_HOME

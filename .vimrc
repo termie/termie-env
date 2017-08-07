@@ -45,6 +45,8 @@ map Q gq
 " text is lost and it only works for putting the current register.
 "vnoremap p "_dp
 
+set t_Co=256
+
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
@@ -186,3 +188,5 @@ let g:syntastic_mode_map = {
       \ "mode": "active",
       \ "active_filetypes": [],
       \ "passive_filetypes": ["go"] }
+
+set clipboard=unnamed

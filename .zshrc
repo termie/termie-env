@@ -24,7 +24,7 @@ function __prompt_git()
 function __prompt_color()
 {
   local RGB CONVERTED RH GH BH RD GD BD
-  RGB=$(echo $(pwd) termie | md5 | cut -c 1-6)
+  RGB=$(echo $(pwd) termie | md5sum | cut -c 1-6)
 
   RH=$(echo ${RGB} | cut -c 1-2)
   GH=$(echo ${RGB} | cut -c 3-4)
