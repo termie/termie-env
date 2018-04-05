@@ -29,11 +29,21 @@ vim_go() {
   vim_bundle vim-go https://github.com/fatih/vim-go
 }
 
+vim_scala() {
+  vim_bundle vim-scala https://github.com/derekwyatt/vim-scala
+}
+
+vim_lua() {
+  vim_bundle vim-lua https://github.com/tbastos/vim-lua.git
+}
+
 main() {
   vim_syntastic
   vim_rainbow_parentheses
   vim_css_color
   vim_go
+  vim_scala
+  vim_lua
 }
 
 main

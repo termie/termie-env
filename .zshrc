@@ -45,7 +45,7 @@ function __prompt_color()
 
 # prompt config
 # should look something like "andy@ptero: ~ %"
-PROMPT=$'%(!.%{$fg[red]%}.%{$fg[green]%})%n@%m%{$reset_color%}:%3c %(!.#.%%) %{$(__prompt_color)%}'
+PROMPT=$'%(!.%{$fg[red]%}.%{$fg[green]%})%n@%m%{$reset_color%}:%3c$EXTRA_PROMPT %(!.#.%%) %{$(__prompt_color)%}\033]0;%3c\007'
 RPROMPT='%{$fg[yellow]%}$(__prompt_git) %{$reset_color%}%*'
 
 long_exec_command="?"

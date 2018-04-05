@@ -5,3 +5,5 @@
 	insteadOf = https://github.com/
 [alias]
 	pr = pull-request
+; [http]
+;   proxy = http://www-proxy-hqdc.us.oracle.com:80
