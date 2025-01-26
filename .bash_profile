@@ -7,3 +7,4 @@
 
 # run the bashrc
 [ -f $HOME/.bashrc ] && . $HOME/.bashrc
+. "$HOME/.cargo/env"

@@ -17,8 +17,16 @@ vim_syntastic() {
   vim_bundle syntastic https://github.com/vim-syntastic/syntastic
 }
 
+vim_python_syntax() {
+  vim_bundle python-syntax https://github.com/vim-python/python-syntax
+}
+
 vim_rainbow_parentheses() {
   vim_bundle rainbow_parentheses https://github.com/kien/rainbow_parentheses.vim
+}
+
+vim_vue() {
+  vim_bundle vim-vue https://github.com/posva/vim-vue.git
 }
 
 vim_css_color() {
@@ -37,6 +45,10 @@ vim_lua() {
   vim_bundle vim-lua https://github.com/tbastos/vim-lua.git
 }
 
+vim_signjump() {
+  vim_bundle vim-signjump https://github.com/ZeroKnight/vim-signjump
+}
+
 main() {
   vim_syntastic
   vim_rainbow_parentheses
@@ -44,6 +56,7 @@ main() {
   vim_go
   vim_scala
   vim_lua
+  vim_signjump
 }
 
 main

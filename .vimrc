@@ -164,7 +164,7 @@ set langmenu=none
 let javaScript_fold=1
 
 highlight ExtraWhitespace ctermbg=red guibg=red
-:match ExtraWhitespace /\s\+$/
+match ExtraWhitespace /\s\+$/
 set list!
 set listchars=tab:▸\ ,
 
@@ -182,11 +182,81 @@ highlight SpecialKey guifg=#444444
 let g:go_fmt_command = "goimports"
 "let g:go_fmt_options = "-f " . expand("%:p")
 
-let g:syntastic_check_on_open = 1
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_python_checkers = ['pyflakes']
+""let g:syntastic_vue_eslint_exe = ['eslint']
+"let g:syntastic_debug=3
+
 
 let g:syntastic_mode_map = {
-      \ "mode": "active",
+      \ "mode": "passive",
       \ "active_filetypes": [],
       \ "passive_filetypes": ["go"] }
 
-set clipboard=unnamed
+let g:python_highlight_all = 1
+let g:vue_disable_pre_processors=1
+
+set clipboard=unnamedplus
+"autocmd BufWritePost *.py execute ':Black'
+
+
+let g:ale_fixers = {
+      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \ 'javascript': ['eslint'],
+      \ 'vue': ['eslint'],
+      \ 'python': ['black'],
+      \}
+let g:ale_fix_on_save = 1
+let g:ale_sign_column_always = 1
+
+set signcolumn=number
+set number
+
+"nnoremap <Leader>2 :call ToggleSignColumn()<CR>
+nnoremap <Leader>2 :call ToggleSignColumn()<CR>
+
+" Toggle signcolumn. Works on vim>=8.1 or NeoVim
+function! ToggleSignColumn()
+    if !exists("b:signcolumn_on") || b:signcolumn_on
+        set signcolumn=no
+        set nonumber
+        let b:signcolumn_on=0
+    else
+        set signcolumn=number
+        set number
+        let b:signcolumn_on=1
+    endif
+endfunction
+
+
+
+"let g:prettier#config#single_quote = 'false'
+"let g:prettier#config#bracket_spacing = 'true'
+"let g:prettier#config#trailing_comma = 'none'
+"autocmd BufWritePre *.js execute ':Prettier'
+
+"let g:ft = ''
+"function! NERDCommenter_before()
+"  if &ft == 'vue'
+"    let g:ft = 'vue'
+"    let stack = synstack(line('.'), col('.'))
+"    if len(stack) > 0
+"      let syn = synIDattr((stack)[0], 'name')
+"      if len(syn) > 0
+"        exe 'setf ' . substitute(tolower(syn), '^vue_', '', '')
+"      endif
+"    endif
+"  endif
+"endfunction
+"function! NERDCommenter_after()
+"  if g:ft == 'vue'
+"    setf vue
+"    let g:ft = ''
+"  endif
+"endfunction

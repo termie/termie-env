@@ -10,6 +10,11 @@ setopt prompt_subst
 autoload -U colors
 colors
 
+if type compdef >/dev/null; then
+  compdef hub=git
+fi
+
+
 function __prompt_git()
 {
   local git_dir ref br top;
@@ -42,10 +47,16 @@ function __prompt_color()
   #echo "\033]Ph${CONVERTED}\033\\\b\b"
 }
 
+if [ -n "$SSH_CONNECTION" ]; then
+  BGCOL='#302b36'
+else
+  BGCOL='#002b36'
+fi
+
 
 # prompt config
 # should look something like "andy@ptero: ~ %"
-PROMPT=$'%(!.%{$fg[red]%}.%{$fg[green]%})%n@%m%{$reset_color%}:%3c$EXTRA_PROMPT %(!.#.%%) %{$(__prompt_color)%}\033]0;%3c\007'
+PROMPT=$'%(!.%{$fg[red]%}.%{$fg[green]%})%n@%m%{$reset_color%}:%3c$EXTRA_PROMPT %(!.#.%%) %{$(__prompt_color)%}%{\033]0;%3c\007%}%{\033]11;$BGCOL\007%}'
 RPROMPT='%{$fg[yellow]%}$(__prompt_git) %{$reset_color%}%*'
 
 long_exec_command="?"
@@ -161,3 +172,26 @@ fi
 
 PERL_MB_OPT="--install_base \"/Users/termie/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/termie/perl5"; export PERL_MM_OPT;
+
+if [[ -z $DISPLAY && XDG_VTNR -eq 1 ]]
+then
+  exec startx
+fi
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+#__conda_setup="$('/home/termie/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+#    eval "$__conda_setup"
+#else
+#    if [ -f "/home/termie/miniconda3/etc/profile.d/conda.sh" ]; then
+#        . "/home/termie/miniconda3/etc/profile.d/conda.sh"
+#    else
+#        export PATH="/home/termie/miniconda3/bin:$PATH"
+#    fi
+#fi
+#unset __conda_setup
+# <<< conda initialize <<<

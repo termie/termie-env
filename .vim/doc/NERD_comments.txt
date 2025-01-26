@@ -1,4 +1,4 @@
-*NERD_comments.txt*                                                  #version#
+*NERD_comments.txt*                                                   v1.47
 
 
                         NERD_COMMENTS REFERENCE MANUAL~

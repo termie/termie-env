@@ -25,10 +25,9 @@ try:
 
     atexit.register(save_history)
     del os, atexit, readline, rlcompleter, save_history, historyPath
-    print '''Using readline'''
+    print('''Using readline''')
 except ImportError:
-    print '''You should install readline... try: python `python -c "import pimp; print pimp.__file__"` -i readline'''
+    print('''You should install readline... try: python `python -c "import pimp; print pimp.__file__"` -i readline''')
 
 
 ls = "Dude, you just typed 'ls'"
-

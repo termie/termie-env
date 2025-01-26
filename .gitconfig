@@ -1,9 +1,13 @@
 [user]
 	name = termie
 	email = github@anarkystic.com
-[url "git@github.com:"]
-	insteadOf = https://github.com/
+; [url "git@github.com:"]
+;   insteadOf = https://github.com/
 [alias]
 	pr = pull-request
 ; [http]
 ;   proxy = http://www-proxy-hqdc.us.oracle.com:80
+[pull]
+	ff = only
+[init]
+	defaultBranch = main
